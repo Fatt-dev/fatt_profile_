@@ -363,6 +363,10 @@ body {
     padding: 20px 14px;
     text-align: center;
     transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .mac-stat-card:hover {
@@ -379,8 +383,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 12px auto;
+    margin: 0 auto 10px auto;
     font-size: 18px;
+    flex-shrink: 0;
 }
 
 .stat-icon-box.purple {
@@ -403,18 +408,41 @@ body {
     color: #10b981;
 }
 
+.stat-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 4px;
+}
+
+.stat-value.song-title {
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.stat-sub {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+}
+
 .stat-number {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 26px;
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 2px;
-}
-
-.stat-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748b;
 }
 
 /* Footer Skills & Socials */
