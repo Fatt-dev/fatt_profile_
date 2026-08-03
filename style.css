@@ -943,8 +943,8 @@ body {
    PANITIA SECTION (Vertical Card Stack Concept)
    ========================================================================== */
 #panitia {
-    padding: 100px 20px;
-    background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);
+    padding: 110px 20px;
+    background-color: #ffffff;
     position: relative;
 }
 
@@ -976,8 +976,8 @@ body {
     color: #64748b;
 }
 
-/* Alternating Vertical Timeline Container */
-.panitia-timeline {
+/* Minimalist Vintage Filmstrip Timeline */
+.panitia-filmstrip-timeline {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
@@ -986,16 +986,35 @@ body {
     gap: 40px;
 }
 
-/* Center Line */
-.timeline-line {
+/* Filmstrip Center Path (Pita Film) */
+.filmstrip-path {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 3px;
-    background: linear-gradient(to bottom, #6366f1, #3b82f6, #cbd5e1);
+    width: 32px;
+    background: #111111;
     transform: translateX(-50%);
-    border-radius: 3px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+    z-index: 2;
+}
+
+/* Sprocket Holes di sisi kiri & kanan pita film */
+.filmstrip-holes-left,
+.filmstrip-holes-right {
+    width: 6px;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #ffffff 0px,
+        #ffffff 10px,
+        transparent 10px,
+        transparent 20px
+    );
 }
 
 /* Timeline Item (Row) */
@@ -1003,6 +1022,7 @@ body {
     position: relative;
     width: 50%;
     display: flex;
+    z-index: 3;
 }
 
 /* Item Kiri */
@@ -1019,29 +1039,32 @@ body {
     justify-content: flex-start;
 }
 
-/* Center Node Dot */
-.timeline-dot {
+/* Frame Number Dot */
+.timeline-frame-dot {
     position: absolute;
     top: 24px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #6366f1, #3b82f6);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    box-shadow: 0 0 0 5px #edf2f7, 0 4px 14px rgba(99, 102, 241, 0.4);
-    z-index: 3;
+    background: #1e293b;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 4;
 }
 
-.timeline-item.left .timeline-dot {
-    right: -19px;
+.frame-num {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: #f59e0b; /* Aksen warna warm orange */
+    letter-spacing: 0.5px;
 }
 
-.timeline-item.right .timeline-dot {
-    left: -19px;
+.timeline-item.left .timeline-frame-dot {
+    right: -25px;
+}
+
+.timeline-item.right .timeline-frame-dot {
+    left: -25px;
 }
 
 /* Card Styling inside Timeline */
@@ -1167,7 +1190,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .timeline-line {
+    .filmstrip-path {
         left: 20px;
     }
 
@@ -1182,8 +1205,8 @@ body {
         left: 0;
     }
 
-    .timeline-item.left .timeline-dot,
-    .timeline-item.right .timeline-dot {
+    .timeline-item.left .timeline-frame-dot,
+    .timeline-item.right .timeline-frame-dot {
         left: 1px;
         right: auto;
     }
