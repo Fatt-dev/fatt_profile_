@@ -560,12 +560,72 @@ body {
     padding: 120px 20px 90px 20px;
 }
 
+/* Film Strip Bottom Divider */
+.film-strip-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #111111;
+    border-top: 2px solid #222222;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.film-holes {
+    height: 12px;
+    width: 100%;
+    background-image: radial-gradient(circle, transparent 40%, #111 45%),
+        radial-gradient(circle, #000 70%, transparent 75%);
+    background-size: 28px 12px;
+    background-repeat: repeat-x;
+    opacity: 0.85;
+}
+
+.film-holes.top-holes {
+    background-image: repeating-linear-gradient(90deg,
+            #0f172a 0px,
+            #0f172a 12px,
+            transparent 12px,
+            transparent 28px);
+    height: 10px;
+    margin: 0 10px;
+}
+
+.film-holes.bottom-holes {
+    background-image: repeating-linear-gradient(90deg,
+            #0f172a 0px,
+            #0f172a 12px,
+            transparent 12px,
+            transparent 28px);
+    height: 10px;
+    margin: 0 10px;
+}
+
+.film-strip-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
 .insta-container {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
     position: relative;
     z-index: 2;
+    padding-top: 100px;
 }
 
 .insta-badge {
@@ -659,7 +719,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    padding-top: 30px;
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 
 .insta-post-card {
@@ -875,5 +936,471 @@ body {
     .insta-profile-bar {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   PANITIA SECTION (Vertical Card Stack Concept)
+   ========================================================================== */
+#panitia {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);
+    position: relative;
+}
+
+.panitia-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.panitia-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.panitia-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.panitia-title span {
+    color: #6366f1;
+}
+
+.panitia-subtitle {
+    font-size: 15px;
+    color: #64748b;
+}
+
+/* Alternating Vertical Timeline Container */
+.panitia-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Center Line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: linear-gradient(to bottom, #6366f1, #3b82f6, #cbd5e1);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+/* Timeline Item (Row) */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    display: flex;
+}
+
+/* Item Kiri */
+.timeline-item.left {
+    left: 0;
+    padding-right: 35px;
+    justify-content: flex-end;
+}
+
+/* Item Kanan */
+.timeline-item.right {
+    left: 50%;
+    padding-left: 35px;
+    justify-content: flex-start;
+}
+
+/* Center Node Dot */
+.timeline-dot {
+    position: absolute;
+    top: 24px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 0 0 5px #edf2f7, 0 4px 14px rgba(99, 102, 241, 0.4);
+    z-index: 3;
+}
+
+.timeline-item.left .timeline-dot {
+    right: -19px;
+}
+
+.timeline-item.right .timeline-dot {
+    left: -19px;
+}
+
+/* Card Styling inside Timeline */
+.panitia-card {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #cbd5e1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 14px 38px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.panitia-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 24px 48px rgba(99, 102, 241, 0.12), 0 8px 16px rgba(15, 23, 42, 0.06);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.panitia-card-image {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #0f172a;
+    overflow: hidden;
+}
+
+.panitia-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.panitia-card:hover .panitia-card-image img {
+    transform: scale(1.08);
+}
+
+.panitia-card-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.4), transparent);
+    pointer-events: none;
+}
+
+.panitia-card-content {
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.panitia-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.08);
+    padding: 5px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.panitia-role-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.panitia-card:hover .panitia-role-title {
+    color: #4f46e5;
+}
+
+.panitia-desc {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #475569;
+    margin-bottom: 18px;
+}
+
+.panitia-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.panitia-tags span {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 5px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.panitia-card:hover .panitia-tags span {
+    background: #ffffff;
+    border-color: rgba(99, 102, 241, 0.25);
+    color: #4f46e5;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 55px !important;
+        padding-right: 0 !important;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+    }
+
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: 1px;
+        right: auto;
+    }
+
+    .panitia-card-image {
+        height: 180px;
+    }
+
+    .panitia-card-content {
+        padding: 18px 20px;
+    }
+}
+
+/* ==========================================================================
+   KOMPETISI SECTION (Ultra-Clean White Theme & Grayscale Watermark)
+   ========================================================================== */
+#kompetisi {
+    padding: 120px 20px 110px 20px;
+    background: #ffffff;
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Watermark kompetisi.png di Pojok Kanan Bawah (Hitam Putih / Grayscale) */
+.kompetisi-watermark {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 480px;
+    max-width: 65%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.12;
+    filter: grayscale(100%) contrast(140%) brightness(90%);
+    mix-blend-mode: multiply;
+    transition: opacity 0.5s ease;
+}
+
+.kompetisi-watermark img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.kompetisi-container {
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.kompetisi-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.kompetisi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.kompetisi-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.kompetisi-title span {
+    color: #6366f1;
+}
+
+.kompetisi-subtitle {
+    font-size: 15px;
+    color: #64748b;
+}
+
+/* Grid Cards Kompetisi Premium White */
+.kompetisi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Jika jumlah card ganjil, card terakhir otomatis berada di tengah */
+.kompetisi-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.kompetisi-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 34px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.kompetisi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #3b82f6);
+    border-radius: 24px 24px 0 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.kompetisi-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 24px 50px rgba(99, 102, 241, 0.12), 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.kompetisi-card:hover::before {
+    opacity: 1;
+}
+
+.kompetisi-card-header {
+    margin-bottom: 20px;
+}
+
+.lomba-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #4f46e5;
+    background: rgba(99, 102, 241, 0.08);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.judul-lomba {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    transition: color 0.25s ease;
+}
+
+.kompetisi-card:hover .judul-lomba {
+    color: #4f46e5;
+}
+
+.kompetisi-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.judul-karya {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #334155;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #6366f1;
+    padding: 12px 16px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.judul-karya i {
+    color: #6366f1;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.kompetisi-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #475569;
+}
+
+@media (max-width: 768px) {
+    .kompetisi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kompetisi-watermark {
+        width: 280px;
+        opacity: 0.08;
+    }
+
+    .kompetisi-card {
+        padding: 26px;
     }
 }
