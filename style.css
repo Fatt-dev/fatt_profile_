@@ -258,10 +258,12 @@ body {
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.4;
         transform: scale(1.4);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -657,6 +659,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    padding-top: 30px;
 }
 
 .insta-post-card {
@@ -864,13 +867,13 @@ body {
     .insta-posts-grid {
         grid-template-columns: 1fr;
     }
+
     .insta-title {
         font-size: 30px;
     }
+
     .insta-profile-bar {
         flex-direction: column;
         text-align: center;
     }
 }
-
-
