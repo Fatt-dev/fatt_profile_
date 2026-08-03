@@ -946,6 +946,7 @@ body {
     padding: 110px 20px;
     background-color: #ffffff;
     position: relative;
+    overflow: hidden;
 }
 
 .panitia-container {
@@ -1008,13 +1009,11 @@ body {
 .filmstrip-holes-right {
     width: 6px;
     height: 100%;
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #ffffff 0px,
-        #ffffff 10px,
-        transparent 10px,
-        transparent 20px
-    );
+    background-image: repeating-linear-gradient(to bottom,
+            #ffffff 0px,
+            #ffffff 10px,
+            transparent 10px,
+            transparent 20px);
 }
 
 /* Timeline Item (Row) */
@@ -1055,7 +1054,8 @@ body {
     font-family: 'Space Grotesk', monospace;
     font-size: 10px;
     font-weight: 700;
-    color: #f59e0b; /* Aksen warna warm orange */
+    color: #f59e0b;
+    /* Aksen warna warm orange */
     letter-spacing: 0.5px;
 }
 
@@ -1065,6 +1065,47 @@ body {
 
 .timeline-item.right .timeline-frame-dot {
     left: -25px;
+}
+
+/* Watermark Backgrounds untuk kepanitiaan */
+.chess_back {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%) rotate(15deg);
+    margin-left: 100px;
+    width: 250px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.30;
+    filter: grayscale(100%);
+    transition: opacity 0.5s ease;
+}
+
+.chess_back img {
+    width: 120%;
+    height: auto;
+    display: block;
+}
+
+.pdd_back {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%) scaleX(-1) rotate(-15deg);
+    margin-right: 65px;
+    width: 250px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity 0.5s ease;
+}
+
+.pdd_back img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Card Styling inside Timeline */
@@ -1211,6 +1252,11 @@ body {
         right: auto;
     }
 
+    .chess_back,
+    .pdd_back {
+        display: none;
+    }
+
     .panitia-card-image {
         height: 180px;
     }
@@ -1234,21 +1280,40 @@ body {
 /* Watermark kompetisi.png di Pojok Kanan Bawah (Hitam Putih / Grayscale) */
 .kompetisi-watermark {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 480px;
-    max-width: 65%;
+    top: 0;
+    right: 0;
+    height: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.12;
-    filter: grayscale(100%) contrast(140%) brightness(90%);
+    opacity: 0.2;
     mix-blend-mode: multiply;
     transition: opacity 0.5s ease;
+    transform: translateX(50%);
 }
 
 .kompetisi-watermark img {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+/* Watermark kompetisi2.png di Kanan/Kiri (Kiri, Dimirror & Dirotate) */
+.kompetisi-watermark-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+    transition: opacity 0.5s ease;
+    transform: translateX(-20%) scaleX(-1) rotate(10deg);
+}
+
+.kompetisi-watermark-left img {
+    height: 100%;
+    width: auto;
     display: block;
 }
 
